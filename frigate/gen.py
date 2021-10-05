@@ -30,9 +30,9 @@ def load_chart(chartdir, root=None):
 
     """
     with open(os.path.join(chartdir, "values.yaml"), "r") as fh:
-        values = yaml.load(fh.read())
+        values = yaml.safe_load(fh.read())
     with open(os.path.join(chartdir, "Chart.yaml"), "r") as fh:
-        chart = yaml.load(fh.read())
+        chart = yaml.safe_load(fh.read())
     return chart, list(traverse(values, root=root))
 
 
